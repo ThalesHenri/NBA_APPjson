@@ -1,0 +1,6 @@
+Aplicação da NBA:
+1 - Relatório da rodada:
+	1 - Calendários dos times
+	2 - Posição
+	3 - Resultado do ultimo jogo
+	4 - Cestinha
