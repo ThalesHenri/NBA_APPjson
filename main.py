@@ -41,18 +41,25 @@ def get_all_star():
     data = get(BASE_URL + all_star).json()
     content = data['sportsContent']
     roster = content['roster']
-    # this underline prevents a bug in the json api
+    # this underline prevents a bug in the json api also the 49 line
     player = roster[0]
     players_dict = player['players']
-    # the keys for player is '1610616833', '1610616834' that one is empty dont know why...
-    players = players_dict['']
-    return players
-    """for i in players:
-        first_name = players['firstName']
-        jersey = players['jersey']
-        teamName = players['teamName']
-        positionFull = players['positionFull']
-        print(f'{first_name} is an allstar, plays for the{teamName} as a {positionFull} and wear the {jersey} jersey')"""
+    # the keys for player is '1610616833', '1610616834' that one is empty dont know why..
+    pl = players_dict['1610616833']
+    """every object in the pl list will be a player and have those keys 'firstName', 'lastName', 
+    'personId', 'teamAbbrev', 'teamCity', 'teamName', 'teamConf', 'teamId', 'jersey', 'positionFull', 'positionShort',
+     'starter', 'reserve', 'injured', 'playerConf', 'firstTime', 'captain', 'allStarTeamId', 'nugget', 'stats"""
+    for i in pl:
+    	firstName = i['firstName']
+    	lastName = i['lastName']
+    	teamName = i['teamName']
+    	positionFull = i['positionFull']
+    	jersey = i['jersey']
+    	starter = i['starter']
 
-a = get_all_star()
-printer.pprint(a)
+    	print(f"Name: {firstName} {lastName} \nTeam: {teamName}\nPosition: {positionFull}\nJersey: {jersey}\nStarter: {starter}")
+    	print("=" * 20)
+    
+
+
+get_all_star()
